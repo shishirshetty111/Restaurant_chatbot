@@ -1,0 +1,80 @@
+intents:
+- restaurant_search
+- email_confirm
+- affirm
+- greet
+- deny
+- goodbye
+entities:
+- budget
+- cuisine
+- email
+- location
+slots:
+  cuisine:
+    type: text
+  location:
+    type: text
+  budget:
+    type: text
+  email:
+    type: text
+  location_ok:
+    initial_value: false
+    type: bool
+responses:
+  utter_ask_cuisine:
+  - buttons:
+    - payload: American
+      title: American
+    - payload: Chinese
+      title: Chinese
+    - payload: Italian
+      title: Italian
+    - payload: Mexican
+      title: Mexican
+    - payload: North Indian
+      title: North Indian
+    - payload: South Indian
+      title: South Indian
+    text: Please share your cuisine preference.
+  utter_require_email:
+  - text: Do you want the details of the top 10 restaurants on email?
+  utter_ask_email:
+  - text: Please share your email-id.
+  utter_ask_location:
+  - text: Please share your location preference.
+  utter_default:
+  - text: I'm sorry, I have not been trained to handle this question. Let's start again!
+  utter_goodbye:
+  - text: Hoping I was able to provide you the requested information. Have a great day ahead!
+  - text: Thanks for contacting us. Have a great day ahead!
+  utter_greet:
+  - text: hey there! How may I help you?
+  - text: Hi, How can I help you?
+  - text: Hey, How is it going. How May I help you Today?
+  utter_ask_budget:
+  - buttons:
+    - payload: low
+      title: Less than Rs.300
+    - payload: mid
+      title: Rs.300 to 700
+    - payload: high
+      title: Greater than Rs.700
+    text: Please share your budget preference for two people.
+  utter_no_results_found:
+  - text: Sorry, No results found for your criteria. Would you like to search again?
+actions:
+- action_search_restaurants
+- action_restart
+- action_send_email
+- utter_ask_budget
+- utter_ask_cuisine
+- utter_ask_email
+- utter_ask_location
+- verify_location
+- utter_default
+- utter_goodbye
+- utter_greet
+- utter_no_results_found
+- utter_require_email
